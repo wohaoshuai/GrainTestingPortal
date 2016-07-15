@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+      {% extends "app/base.html" %}
+      {% load staticfiles %}
+      {%block head%}
+    <meta charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{% static 'app/content/custom.css' %}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properities -->
+    <script>
+    $(document)
+      .ready(function() {
+        $('.ui.form')
+          .form({
+
+          })
+        ;
+      })
+    ;
+    </script>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+{%endblock head%}
+{%block content%}
+<body class="main main-view">
+
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        <div href="#" class="header item">
+        Grain Testing Portal
+        </div>
+      </div>
+      <div class="right menu">
+      <div href="#" class="header huge item">{{obj}}</div>
+                <a href="/logout" class="item">Logout</a>
+
+      </div>
+    </div>
+
+
+          <div>
+              <i class="pagelines icon"></i>
+              Grain Testing Portal
+          </div>
+<br>
+<br>
+
+<br>
+
+      <div class="ui grid">
+              <div class="two wide column">
+
+                  <div class="menu-bar">
+                    <a href = "/index">  <button class=" ui red plus icon button" onclick="show_home_planting();">
+                          <i class="huge home  icon menu-icon"></i><br>
+                          Home
+                      </button></a>
+                       <a href = "/showreport">  <button class=" ui white icon button" onclick="show_reports();">
+                          <i class="huge edit  icon menu-icon"></i><br>
+                          Reports
+                      </button></a><br>
+                      <button class=" ui yellow icon button" onclick="show_messages();">
+                          <i class="huge mail  icon menu-icon"></i><br>
+                          Messages
+                      </button><br>
+                      <button class=" ui green icon button" onclick="show_user_info();">
+                          <i class="huge user  icon menu-icon"></i><br>
+                          Users
+                      </button><br>
+                      <button class=" ui teal icon button" onclick="show_help();">
+                          <i class="huge help  icon menu-icon"></i><br>
+                          Help
+                      </button><br>
+                      <button class=" ui blue icon button" onclick="show_settings();">
+                          <i class="huge settings  icon menu-icon"></i><br>
+                          Settings
+                      </button><br>
+                  </div>
+              </div>
+
+              <div class="eight wide column " id="content-area">
+
+                  <br>
+                  <h1 class="ui dividing header">New Report</h1>
+
+
+                  <form class="ui form" method="post" action = "/form/">
+                      {%csrf_token%}
+                      <br>
+                      <div class="field">
+                          <label>Id</label>
+                          <input type="number"  name = "id1" placeholder=""><br><br>
+                      </div>
+                      <div class="field">
+                          <div class="two fields">
+                              <div class="disabled field">
+                                  <label>Report ID</label>
+                                  <input type="number" placeholder="4">
+                              </div>
+                              <div class="field">
+                                  <label>Date</label>
+                                  <input type="date" name = "date" placeholder="">
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="field">
+                          <div class="field">
+                              <label>Type</label>
+                             <input type="text" name="ptype" placeholder="Corn">
+                          </div>
+
+                      </div>
+
+                      <br>
+                      <div class="three fields">
+                          <div class="field">
+                              <label>Available</label>
+                              <input type="date" name = "available" placeholder=""><br><br>
+
+                              <div class="ui toggle checkbox">
+                                  <input type="checkbox" name="gift" tabindex="0" class="hidden">
+                                  <label>Immediately</label>
+                              </div>
+                          </div>
+
+                          <div class="field">
+                              <label>Minimum Price</label>
+                              <input type="number" name = "min_price" placeholder="$"><br><br>
+                          </div>
+
+                          <div class="field">
+                              <label>Maximum Price</label>
+                              <input type="number"  name = "max_price" placeholder="$"><br><br>
+                          </div>
+                          <div class="field">
+                              <label>Quantity</label>
+                              <input type="number"  name = "quantity" placeholder=""><br><br>
+                          </div>
+
+                      </div> <br><br>
+
+                      <div class="field">
+
+                      </div>
+
+
+                        <div class="ui fluid large teal submit button">Submit</div>
+                  </form>
+
+
+
+              </div>
+      </div>
+
+</body>
+ {%endblock content%}

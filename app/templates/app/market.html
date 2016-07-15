@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+      {% extends "app/base.html" %}
+      {% load staticfiles %}
+      {%block head%}
+    <meta charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{% static 'app/content/custom.css' %}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properities -->
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+{%endblock head%}
+{%block content%}
+
+<body class="main main-view">
+
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        <div href="#" class="header item">
+            Marketplace
+        </div>
+      </div>
+
+    </div>
+
+
+          <div>
+              <i class="pagelines icon"></i>
+              Grain Testing Portal
+          </div>
+<br>
+<br>
+
+    <div class="ui grid">
+        <div class="two wide column">
+
+            <div class="menu-bar">
+                <button class=" ui white plus icon button">
+                    <i class="huge home  icon menu-icon"></i><br>
+                    Home
+                </button>
+                <a href = "/showreport"><button class=" ui orange icon button">
+                    <i class="huge edit  icon menu-icon"></i><br>
+                    Reports
+                </button></a><br>
+                <a href = "/sms"><button class=" ui yellow icon button">
+                    <i class="huge mail  icon menu-icon"></i><br>
+                    Messages
+                </button><br>
+                <a href = "/help"><button class=" ui blue icon button" >
+                    <i class="huge help  icon menu-icon"></i><br>
+                    Help
+                </button><br>
+
+            </div>
+        </div>
+
+<div id="reports-content">
+    <table class="ui very basic table">
+        <thead>
+        <tr>
+
+            <th>Date</th>
+            <th>Grain Type</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>More Info</th>
+            <th>Contact Seller</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            {% for li in list %}
+            <tr>
+
+              <td>
+              {{li.date}}</td>
+              <td>
+
+               {{li.ptype}}</td>
+          <td>
+
+            {{li.quantity}}</td>
+              <td>In-stock</td>
+
+              <td>
+                  <a href="" ><button> Details </button></a>
+              </td>
+
+              <td>
+                  <a href="/contact" ><button> Get Qoute </button></a>
+              </td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+
+
+</body>
+  {%endblock content%}

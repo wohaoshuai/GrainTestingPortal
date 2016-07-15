@@ -1,0 +1,198 @@
+{% extends "app/base.html" %}
+{% load staticfiles %}
+{%block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/main.css' %}" />
+{%endblock head%}
+{%block content%}
+<style type="text/css">
+body {
+background-color: #F8F8F8;
+}
+body > .grid {
+height: 100%;
+}
+.image {
+margin-top: -100px;
+}
+.column {
+max-width: 1000px;
+}
+</style>
+<script>
+    $(document)
+        .ready(function() {
+            $('.ui.form')
+                .form({
+                    fields: {
+                        username: {
+                            identifier: 'username',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your username'
+                            }]
+                        },
+                        city: {
+                            identifier: 'city',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your city'
+                            }]
+                        },
+                        state: {
+                            identifier: 'state',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your state'
+                            }]
+                        },
+                        zipcode: {
+                            identifier: 'zipcode',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your zipcode'
+                            }]
+                        },
+                        password1: {
+                            identifier: 'password1',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your password again to confirm'
+                            }]
+                        },
+                        address: {
+                            identifier: 'address',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your address'
+                            }]
+                        },
+                        email: {
+                            identifier: 'email',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your e-mail'
+                            }, {
+                                type: 'email',
+                                prompt: 'Please enter a valid e-mail'
+                            }]
+                        },
+                        firstname: {
+                            identifier: 'firstname',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your firstname'
+                            }, ]
+                        },
+                        email: {
+                            identifier: 'email',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your e-mail'
+                            }, {
+                                type: 'email',
+                                prompt: 'Please enter a valid e-mail'
+                            }]
+                        },
+                        lastname: {
+                            identifier: 'lastname',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your lastname'
+                            }, ]
+                        },
+                        password: {
+                            identifier: 'password',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your password'
+                            }, {
+                                type: 'length[8]',
+                                prompt: 'Your password must be at least 8 characters'
+                            }]
+                        }
+                    }
+                });
+        });
+</script>
+  <div class="ui middle aligned center aligned grid">
+    <div class="column">
+      <h2 class="ui teal image header">
+      <div class="content">
+        Sign up for an account!
+      </div>
+      </h2>
+      <form class="ui large form" method="post" action = "/signup/">
+        {%csrf_token%}
+        <div class="ui stacked segment">
+          <div class ="two fields">
+            <div class="field">
+              <div class="ui left labeled input">
+                <div class = "ui label">First name</div>
+                <input type="text" name="first_name" placeholder="First name">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left labeled input">
+                <div class = "ui label">Last name</div>
+                <input type="text" name="last_name" placeholder="Last name">
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left labeled input">
+              <div class = "ui label">Username</div>
+              <input type="text" name="username" placeholder="Username">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left labeled input">
+              <div class = "ui label">Address</div>
+              <input type="text" name="address" placeholder="Street address">
+            </div>
+          </div>
+          <div class ="three fields">
+            <div class="field">
+              <div class="ui left labeled input">
+                <div class = "ui label">City</div>
+                <input type="text" name="city" placeholder="City">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left labeled input">
+                <div class = "ui label">State</div>
+                <input type="text" name="state" placeholder="State">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left labeled input">
+                <div class = "ui label">Zip-code</div>
+                <input type="number" name="zipcode" placeholder="Zipcode">
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left labeled input">
+              <div class = "ui label">E-mail</div>
+              <input type="email" name="email" placeholder="E-mail">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left labeled input">
+              <div class = "ui label">Password</div>
+              <input type="password" name="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left labeled input">
+              <div class = "ui label">Password (again)</div>
+              <input type="password" name="password1" placeholder="Password">
+            </div>
+          </div>
+          <div class="ui fluid large teal submit button">Signup!</div>
+        </div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+</div>
+
+  {%endblock content%}

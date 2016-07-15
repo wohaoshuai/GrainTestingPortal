@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+      {% extends "app/base.html" %}
+      {% load staticfiles %}
+      {%block head%}
+    <meta charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{% static 'app/content/custom.css' %}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properities -->
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+{%endblock head%}
+{%block content%}
+
+<body class="main main-view">
+
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        <div href="#" class="header item">
+            Grain Testing Portal
+        </div>
+      </div>
+      <div class="right menu">
+      <div href="#" class="header huge item">{{obj}}</div>
+                <a href="/logout" class="item">Logout</a>
+
+      </div>
+    </div>
+
+
+          <div>
+              <i class="pagelines icon"></i>
+              Grain Testing Portal
+          </div>
+<br>
+<br>
+
+<br>
+
+
+
+
+    <div class="ui grid">
+        <div class="two wide column">
+
+            <div class="menu-bar">
+                <button class=" ui white plus icon button">
+                    <i class="huge home  icon menu-icon"></i><br>
+                    Home
+                </button>
+                <a href = "/showreport"><button class=" ui orange icon button">
+                    <i class="huge edit  icon menu-icon"></i><br>
+                    Reports
+                </button></a><br>
+                <a href = "/sms"><button class=" ui yellow icon button">
+                    <i class="huge mail  icon menu-icon"></i><br>
+                    Messages
+                </button><br>
+                <a href = "/market"><button class=" ui teal icon button">
+                    <i class="huge user  icon menu-icon"></i><br>
+                    Market
+                </button><br>
+                <a href = "/help"><button class=" ui blue icon button" >
+                    <i class="huge help  icon menu-icon"></i><br>
+                    Help
+                </button><br>
+
+            </div>
+        </div>
+
+        <div class="eight wide column " id="content-area">
+
+
+            <div id="home-content">
+
+                <div class="ui unordered steps">
+
+                    <br>
+                    <a href = "/index">
+                    <div class="active step" id="step_one">
+                        <div class="content">
+                            <div class="title">Planting</div>
+                        </div>
+                    </div></a>
+
+                    <div class="step" id="step_two" onclick="show_home_growing();">
+                        <div class="content">
+                            <div class="title">Growing</div>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step_three" onclick="show_home_harvesting();">
+                        <div class="content">
+                            <div class="title">Harvesting</div>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step_four" onclick="show_home_cleaning();">
+                        <div class="content">
+                            <div class="title">Cleaning</div>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step_five" onclick="show_home_drying();">
+                        <div class="content">
+                            <div class="title">Drying</div>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step_six" onclick="show_home_milling();">
+                        <div class="content">
+                            <div class="title">Milling</div>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step_seven" onclick="show_home_sales();">
+                        <div class="content">
+                            <div class="title">Sales</div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <br><br>
+
+                <div class="ui three cards ">
+
+                    <!-- card 1 -->
+
+                    <div class="ui pink card" onclick="card1_show_content();">
+                        <div class="big image">
+                            <img src="{{ MEDIA_URL }}1.png">
+                        </div>
+                        <div class="content ">
+                            <a class="header">Basic of Soil Preperation</a>
+                            <div class="description" >
+                                Ploughing and Preperation
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            University of Illinois<br>May 2015
+                        </div>
+                    </div>
+
+                    <!-- card 2 -->
+
+                    <div class="ui orange card" onclick="card1_show_content();">
+                        <div class="big image">
+                            <img src="{{ MEDIA_URL }}2.jpg">
+                        </div>
+                        <div class="content ">
+                            <a class="header">Basic of Soil Preperation</a>
+                            <div class="description" >
+                                Ploughing and Preperation
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <University of Illinois<br>May 2015
+                        </div>
+                    </div>
+
+                    <!-- card 3 -->
+
+                    <div class="ui yellow card" onclick="card1_show_content();">
+                        <div class="big image">
+                             <img src="{{ MEDIA_URL }}1.png">
+                        </div>
+                        <div class="content ">
+                            <a class="header">Basic of Soil Preperation</a>
+                            <div class="description" >
+                                Ploughing and Preperation
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            University of Illinois<br>May 2015
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="ui long basic modal">
+                    <i class="close icon"></i>
+                    <div class="header">
+                        Basics of Soil Preperation<br><br>
+
+                        <iframe id="cartoonVideo" width="560" height="315" src="drying.mp4?&rel=0" frameborder="0" allowfullscreen></iframe>
+
+                    </div>
+
+                    <div class="content">
+
+                        <div class="description">
+                            Prior to planting, the soil needs to be prepared, usually by some form of tillage or chemical "burn-down" to kill the weeds in the seedbed that would crowd out the crop or compete with it for water and nutrients. Tillage methods can be divided into three major categories, depending on the amount of crop residue they leave on the surface. Residue slows the flow of runoff that can displace and carry away soil particles. <br><br>
+
+                            <ul>
+                                <li>
+                                    Conventional tillage - Up until about 20 years ago, the standard tillage practice for corn was use of the moldboard plow for primary tillage followed by several secondary tillages and mechanical cultivation after the crop was up. Today's farmers have turned away from moldboard tillage because moldboard plows tend to leave minimal crop residue on the soil surface after tillage and in turn, decreases valuable organic matter. By reducing moldboard plow use, and increasing organic matter in the soil, the soil becomes less erodible soil, looser, and holds more water. Today, a very low percentage of row crops are planted with the moldboard plowand mechanical cultivation is often limited to one, or no operations.
+                                </li><br>
+                                <li>
+                                    Reduced tillage is usually done with a chisel plow and leaves 15% to 30% residue coverage on the soil.
+                                </li><br>
+                                <li>
+                                    Conservation tillage leaves at least 30% residue coverage on the soil. Conservation tillage methods include no-till, where no tillage is done at all and seeds are placed directly into the previous season's crop residue; strip-till, in which only the narrow strip of land needed for the crop row is tilled; ridge till; and mulch till.
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+  {%endblock content%}

@@ -7,7 +7,7 @@ from django.conf.urls import patterns, url, include
 from django.contrib import admin
 import app.views
 import settings
-
+import django_twilio.views
 # Uncomment the next lines to enable the admin:
 # from django.conf.urls import include
 # from django.contrib import admin
@@ -27,4 +27,10 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),     
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^message/', 'django_twilio.views.message', {
+        'message': 'Yo!',
+        'to': '+12535088701',
+        'sender': '+12532143686',
+        'status_callback': '/message/completed/',
+    })
 )

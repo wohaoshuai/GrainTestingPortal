@@ -17,6 +17,9 @@ from app.forms import Signup, sign_up_acc, report2
 
 from django_twilio.decorators import twilio_view
 from twilio.twiml import Response
+from twilio.rest import TwilioRestClient
+
+
 
 
 
@@ -104,20 +107,16 @@ def user_logout(request):
 
 @twilio_view
 def sms(request):
+    account_sid = "AC9c93b746c4637134e3f90ecef936e44c"
+    auth_token = "884466a72597c7feeca762c22e4cbeb2"
+    client = TwilioRestClient(account_sid, auth_token)
 
-    message = request.POST.get('Body', '')
-
-    mylist = message.split(" ")
-    id2 = mylist[0]
-    temp2 = mylist[1]
-    humid2 = mylist[2]
-
-    Reports.objects.filter(id1=id2).update(temp=temp2, humidity=humid2)
-
-    msg = 'Report from  %s recieved' % (id2)
-    r = Response()
-    r.message(msg)
-    return r
+    message = client.messages.create(to="+12535088701", from_="+12532143686",
+                                     body="Hello there!")
+    
+    return HttpResponseRedirect('/login/')
 
 def contact(request):
   return render(request, 'app/contact.html')
+
+

@@ -6,18 +6,19 @@ from os import path
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = True 
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = '#!adrq-ub$7b_24+y+6@whfr5362e#1vetk*j344!(k(pqx(d3'
-TWILIO_ACCOUNT_SID = 'ACfeadfa1b0c043a572eeee1333541e2d0'
-TWILIO_AUTH_TOKEN = 'd90e19c54e68ba007a41abee666e6b26'
+TWILIO_ACCOUNT_SID = 'AC9c93b746c4637134e3f90ecef936e44c'
+TWILIO_AUTH_TOKEN = '884466a72597c7feeca762c22e4cbeb2'
 #TWILIO_DEFAULT_CALLERID = 'NNNNNNNNNN'
 
-ALLOWED_HOSTS = (
-    'localhost',
-)
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+ALLOWED_HOSTS = [".herokuapp.com", ".researchthroughdesign.org"]
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -66,7 +67,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/Users/work/Desktop/1/media'
+MEDIA_ROOT = '/Users/apple/Desktop/1/media'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
